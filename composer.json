@@ -1,0 +1,55 @@
+{
+    "name": "nepada/message-bus",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "description": "Opinionated message bus built on top of symfony/messenger.",
+    "keywords": ["messenger", "message bus"],
+    "support": {
+        "email": "petr@pada.cz",
+        "issues": "https://github.com/nepada/message-bus/issues"
+    },
+    "authors": [
+        {
+            "name": "Petr Morávek",
+            "email": "petr@pada.cz"
+        },
+        {
+            "name": "Ondřej Bouda",
+            "email": "ondrej.bouda@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "symfony/messenger": "^5.0@dev",
+        "psr/container": "^1.0",
+        "psr/log": "^1.1"
+    },
+    "require-dev": {
+        "nette/tester": "^2.3.2",
+        "phpstan/phpstan": "^0.12.26",
+        "phpstan/phpstan-strict-rules": "^0.12.2",
+        "pepakriz/phpstan-exception-rules": "^0.11.1",
+        "nepada/phpstan-nette-tester": "^0.3.0",
+        "spaze/phpstan-disallowed-calls": "^0.12.1",
+        "php-parallel-lint/php-parallel-lint": "^1.2.0",
+        "nepada/coding-standard": "^7.2"
+    },
+    "suggest": {
+        "nepada/message-bus-doctrine": "for Doctrine ORM integration"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nepada\\MessageBus\\": "src/MessageBus/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NepadaTests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
+}

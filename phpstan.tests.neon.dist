@@ -1,0 +1,22 @@
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/nepada/phpstan-nette-tester/extension.neon
+    - tests/PHPStan/disallowedCalls.neon
+
+parameters:
+    level: max
+    paths:
+        - tests
+
+    fileExtensions:
+        - php
+        - phpt
+
+    excludes_analyse:
+        - tests/temp/*
+
+    ignoreErrors:
+        - # needed for tests
+            path: tests/MessageBus/Logging/Fixtures/TestLoggableMessage.php
+            message: "#^Variable property access on \\$this\\(NepadaTests\\\\MessageBus\\\\Logging\\\\Fixtures\\\\TestLoggableMessage\\)\\.$#"
+            count: 1
