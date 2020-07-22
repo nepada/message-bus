@@ -7,7 +7,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 /**
  * Event subscriber implementation must adhere to these rules:
- * - class must be named <do-something>On<event-name>
+ * - class must be named `<do-something>On<event-name>`
  * - class must be final
  * - class must implement method named `__invoke`
  * - `__invoke` method must have exactly one parameter named `$event`

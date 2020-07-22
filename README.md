@@ -29,11 +29,11 @@ We define two types of messages and corresponding message buses - commands and e
 
 Command implementation must adhere to these rules:
 - class must implement `Nepada\Commands\Command` interface
-- class must be named <command-name>Command
+- class must be named `<command-name>Command`
 - class must be final
 - command name should be in imperative form ("do something")
 - command must be a simple immutable DTO
-- command must not contain entities, only references (i.e. "int $orderId", not "Order $order")
+- command must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
 
 Examples of good command class names:
 - `RejectOrderCommand`
@@ -41,7 +41,7 @@ Examples of good command class names:
 
 Command handler implementation must adhere to these rules:
 - class must implement `Nepada\Commands\CommandHandler` interface
-- class must be named <command-name>Handler
+- class must be named `<command-name>Handler`
 - class must be final
 - class must implement method named `__invoke`
 - `__invoke` method must have exactly one parameter named `$command`
@@ -73,10 +73,10 @@ Events must be dispatched during command handling only.
 
 Event implementation must adhere to these rules:
 - class must implement `Nepada\Events\Event` interface
-- class must be named <event-name>Event
+- class must be named `<event-name>Event`
 - event name should be in past tense ("something happened")
 - event must be a simple immutable DTO
-- event must not contain entities, only references (i.e. "int $orderId", not "Order $order")
+- event must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
 
 Examples of good event class names:
 - `OrderRejectedEvent`
@@ -84,7 +84,7 @@ Examples of good event class names:
 
 Event subscriber implementation must adhere to these rules:
 - class must implement `Nepada\Events\EventSubscriber` interface
-- class must be named <do-something>On<event-name>
+- class must be named `<do-something>On<event-name>`
 - class must be final
 - class must implement method named `__invoke`
 - `__invoke` method must have exactly one parameter named `$event`
@@ -100,11 +100,11 @@ final class DoSomethingOnSomethingHappened implements \Nepada\MessageBus\Events\
 }
 ```
 
+Every event may have any number of subscribers, or none at all.
+
 
 Configuration & Usage
 ---------------------
-
-It is completely up to you to use the provided building blocks and properly configure one or more instances of command and/or event buses.
 
 ### Static analysis
 
@@ -115,7 +115,6 @@ The analysis should be run during the compilation of DI container, triggering it
 use Nepada\MessageBus\StaticAnalysis\ConfigurableHandlerValidator;
 use Nepada\MessageBus\StaticAnalysis\HandlerType;
 use Nepada\MessageBus\StaticAnalysis\MessageHandlerValidationConfiguration;
-use Nepada\MessageBus\StaticAnalysis\MessageTypeExtractor;
 
 // Validate command handler
 $commandHandlerType = HandlerType::fromString(DoSomethingHandler::class);
@@ -128,9 +127,16 @@ $eventSubscriberType = HandlerType::fromString(DoSomethingOnSomethingHappened::c
 $eventSubscriberConfiguration = MessageHandlerValidationConfiguration::event();
 $eventSubscriberValidator = new ConfigurableHandlerValidator($eventSubscriberConfiguration);
 $eventSubscriberValidator->validate($eventSubscriberType);
+```
+
+Use `MessageTypeExtractor` to retrieve the message type that a given command handler or event subscriber handles:
+```php
+use Nepada\MessageBus\StaticAnalysis\HandlerType;
+use Nepada\MessageBus\StaticAnalysis\MessageTypeExtractor;
 
 // Extracting handled message type
 $messageTypeExtractor = new MessageTypeExtractor();
+$commandHandlerType = HandlerType::fromString(DoSomethingHandler::class);
 $messageTypeExtractor->extract($commandHandlerType); // MessageType instance for DoSomethingCommand
 ```
 
@@ -144,6 +150,74 @@ Logging context is filled with the extracted attributes of command or event DTO.
  
 Generally, it's not a good idea to execute commands from within another command handler.
 You can completely forbid this behavior with `PreventNestedHandlingMiddleware`.
+
+### Configuration
+
+It is completely up to you to use the provided building blocks together with Symfony Messenger and configure one or more instances of command and/or event buses.
+
+A minimal setup in pure PHP might look something like this: 
+```php
+use Nepada\MessageBus\Commands\CommandHandlerLocator;
+use Nepada\MessageBus\Commands\MessengerCommandBus;
+use Nepada\MessageBus\Events\EventSubscribersLocator;
+use Nepada\MessageBus\Events\MessengerEventDispatcher;
+use Nepada\MessageBus\Logging\LogMessageResolver;
+use Nepada\MessageBus\Logging\MessageContextResolver;
+use Nepada\MessageBus\Logging\PrivateClassPropertiesExtractor;
+use Nepada\MessageBus\Middleware\LoggingMiddleware;
+use Nepada\MessageBus\Middleware\PreventNestedHandlingMiddleware;
+use Symfony\Component\Messenger\MessageBus;
+use Symfony\Component\Messenger\Middleware\DispatchAfterCurrentBusMiddleware;
+use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+
+$dispatchAfterCurrentBusMiddleware = new DispatchAfterCurrentBusMiddleware();
+$preventNestedHandlingMiddleware = new PreventNestedHandlingMiddleware();
+$loggingMiddleware = new LoggingMiddleware(
+    new LogMessageResolver(),
+    new MessageContextResolver(
+        new PrivateClassPropertiesExtractor(),
+    ),
+    $psrLogger,
+);
+$handleCommandMiddleware = new HandleMessageMiddleware(
+    new CommandHandlerLocator(
+        $psrContainer,
+        [
+            DoSomethingCommand::class => 'doSomethingHandlerServiceName',
+        ],
+    ),
+);
+$handleEventMiddleware = new HandleMessageMiddleware(
+    new EventSubscribersLocator(
+        $psrContainer,
+        [
+            SomethingHappenedEvent::class => [
+                'doSomethingOnSomethingHappenedServiceName',
+                'doSomethingElseOnSomethingHappenedServiceName',
+            ],
+        ],
+    ),
+);
+$eventDispatcher = new MessengerEventDispatcher(
+    new MessageBus([
+        $dispatchAfterCurrentBusMiddleware,
+        $loggingMiddleware,
+        $handleEventMiddleware,
+    ]),
+);
+$commandBus = new MessengerCommandBus(
+    new MessageBus([
+        $dispatchAfterCurrentBusMiddleware,
+        $loggingMiddleware,
+        $preventNestedHandlingMiddleware,
+        $handleCommandMiddleware,
+    ]),
+);
+```
+Note the usage of `DispatchAfterCurrentBusMiddleware` - this is necessary to ensure that events produced during the handling of a command are handled only after the command handling **successfully** finishes.
+
+
+For Nette Framework integration, consider using [nepada/message-bus-nette](https://github.com/nepada/message-bus-nette).
 
 ### Extensions
 
