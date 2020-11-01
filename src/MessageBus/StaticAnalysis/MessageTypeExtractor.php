@@ -3,13 +3,15 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\StaticAnalysis;
 
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+
 final class MessageTypeExtractor
 {
 
     public const METHOD_NAME = '__invoke';
 
     /**
-     * @template  T of \Symfony\Component\Messenger\Handler\MessageHandlerInterface
+     * @template T of MessageHandlerInterface
      * @param HandlerType<T> $handlerType
      * @return MessageType
      * @throws StaticAnalysisFailedException
