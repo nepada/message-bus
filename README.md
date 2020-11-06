@@ -1,7 +1,7 @@
 Message Bus
 ===========
 
-[![Build Status](https://travis-ci.org/nepada/message-bus.svg?branch=master)](https://travis-ci.org/nepada/message-bus)
+[![Build Status](https://github.com/nepada/message-bus/workflows/CI/badge.svg)](https://github.com/nepada/message-bus/actions?query=workflow%3ACI+branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/nepada/message-bus/badge.svg?branch=master)](https://coveralls.io/github/nepada/message-bus?branch=master)
 [![Downloads this Month](https://img.shields.io/packagist/dm/nepada/message-bus.svg)](https://packagist.org/packages/nepada/message-bus)
 [![Latest stable](https://img.shields.io/packagist/v/nepada/message-bus.svg)](https://packagist.org/packages/nepada/message-bus)
