@@ -11,13 +11,12 @@ final class MessageType
 {
 
     /**
-     * @phpstan-var class-string
+     * @var class-string
      */
     private string $type;
 
     /**
-     * @phpstan-param class-string $type
-     * @param string $type
+     * @param class-string $type
      */
     private function __construct(string $type)
     {
@@ -30,8 +29,7 @@ final class MessageType
     }
 
     /**
-     * @phpstan-param class-string $type
-     * @param string $type
+     * @param class-string $type
      * @return MessageType
      */
     public static function fromString(string $type): self
@@ -40,8 +38,7 @@ final class MessageType
     }
 
     /**
-     * @phpstan-return class-string
-     * @return string
+     * @return class-string
      */
     public function toString(): string
     {

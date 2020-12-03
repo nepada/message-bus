@@ -10,8 +10,7 @@ final class ClassIsFinalRule
 {
 
     /**
-     * @phpstan-param class-string $type
-     * @param string $type
+     * @param class-string $type
      * @throws StaticAnalysisFailedException
      */
     public function validate(string $type): void

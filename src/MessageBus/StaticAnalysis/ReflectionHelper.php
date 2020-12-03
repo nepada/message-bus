@@ -8,8 +8,7 @@ final class ReflectionHelper
 
     /**
      * @template T of object
-     * @phpstan-param class-string<T> $type
-     * @param string $type
+     * @param class-string<T> $type
      * @return \ReflectionClass<T>
      * @throws StaticAnalysisFailedException
      */
@@ -25,8 +24,7 @@ final class ReflectionHelper
 
     /**
      * @template T of object
-     * @phpstan-param class-string<T> $class
-     * @param string $class
+     * @param class-string<T> $class
      * @param string $methodName
      * @return \ReflectionMethod
      * @throws StaticAnalysisFailedException

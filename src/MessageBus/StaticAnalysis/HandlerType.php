@@ -12,13 +12,12 @@ final class HandlerType
 {
 
     /**
-     * @phpstan-var class-string<T>
+     * @var class-string<T>
      */
     private string $type;
 
     /**
-     * @phpstan-param class-string<T> $type
-     * @param string $type
+     * @param class-string<T> $type
      */
     private function __construct(string $type)
     {
@@ -26,8 +25,7 @@ final class HandlerType
     }
 
     /**
-     * @phpstan-param T $handler
-     * @param MessageHandlerInterface $handler
+     * @param T $handler
      * @return HandlerType<T>
      */
     public static function fromHandler(MessageHandlerInterface $handler): self
@@ -45,7 +43,7 @@ final class HandlerType
     }
 
     /**
-     * @phpstan-return class-string<T>
+     * @return class-string<T>
      */
     public function toString(): string
     {
@@ -54,8 +52,7 @@ final class HandlerType
 
     /**
      * @template TOther of MessageHandlerInterface
-     * @phpstan-param HandlerType<TOther> $handlerType
-     * @param HandlerType $handlerType
+     * @param HandlerType<TOther> $handlerType
      * @return bool
      */
     public function isSubtypeOf(HandlerType $handlerType): bool
