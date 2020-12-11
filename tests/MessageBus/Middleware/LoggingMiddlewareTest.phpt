@@ -81,7 +81,7 @@ class LoggingMiddlewareTest extends TestCase
                 $middleware->handle($envelope, $stack);
             },
             HandlerFailedException::class,
-            'Error',
+            '%a?%Error',
         );
 
         Assert::same(
