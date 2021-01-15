@@ -26,11 +26,11 @@
     },
     "require-dev": {
         "nette/tester": "^2.3.4",
-        "phpstan/phpstan": "^0.12.54",
-        "phpstan/phpstan-strict-rules": "^0.12.5",
-        "pepakriz/phpstan-exception-rules": "^0.11.1",
-        "nepada/phpstan-nette-tester": "^0.3.0",
-        "spaze/phpstan-disallowed-calls": "^1.0.1",
+        "phpstan/phpstan": "^0.12.67",
+        "phpstan/phpstan-strict-rules": "^0.12.9",
+        "pepakriz/phpstan-exception-rules": "^0.11.3",
+        "nepada/phpstan-nette-tester": "^0.3.1",
+        "spaze/phpstan-disallowed-calls": "^1.1",
         "php-parallel-lint/php-parallel-lint": "^1.2.0",
         "nepada/coding-standard": "^7.3"
     },

@@ -20,10 +20,6 @@ parameters:
     ignoreErrors:
         - '~Call to an undefined method ReflectionType::getName\(\)~'
         - # false positive
-            path: src/MessageBus/StaticAnalysis/ReflectionHelper.php
-            message: '~ReflectionException is never thrown in the corresponding try block~'
-            count: 1
-        - # false positive
             path: src/MessageBus/StaticAnalysis/ConfigurableHandlerValidator.php
             message: "#^Parameter \\#1 \\$type of method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\Rules\\\\ShortClassNameMatchesRule\\:\\:validate\\(\\) expects class\\-string, string given\\.$#"
             count: 1
