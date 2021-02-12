@@ -22,3 +22,11 @@ parameters:
             path: tests/MessageBus/Logging/Fixtures/TestLoggableMessage.php
             message: "#^Variable property access on \\$this\\(NepadaTests\\\\MessageBus\\\\Logging\\\\Fixtures\\\\TestLoggableMessage\\)\\.$#"
             count: 1
+        - # intended
+            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Commands/CommandHandlerValidatorTest.phpt
+        - # intended
+            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Events/EventSubscriberValidatorTest.phpt

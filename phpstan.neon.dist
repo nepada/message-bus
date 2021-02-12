@@ -23,10 +23,6 @@ parameters:
             path: src/MessageBus/StaticAnalysis/ConfigurableHandlerValidator.php
             message: "#^Parameter \\#1 \\$type of method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\Rules\\\\ShortClassNameMatchesRule\\:\\:validate\\(\\) expects class\\-string, string given\\.$#"
             count: 1
-        - # intended
-            path: src/MessageBus/StaticAnalysis/HandlerType.php
-            message: "#^Parameter \\#1 \\$type of class Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType constructor expects class\\-string\\<T of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
-            count: 1
         - # false positive
             path: src/MessageBus/StaticAnalysis/HandlerType.php
             message: "#^Call to function is_subclass_of\\(\\) with class\\-string\\<T of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> and class\\-string\\<TOther of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> will always evaluate to true\\.$#"

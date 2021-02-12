@@ -34,7 +34,7 @@ final class HandlerType
     }
 
     /**
-     * @param string $type
+     * @param class-string<T> $type
      * @return HandlerType<T>
      */
     public static function fromString(string $type): self
