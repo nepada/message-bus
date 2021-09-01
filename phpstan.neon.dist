@@ -28,6 +28,10 @@ parameters:
             message: "#^Call to function is_subclass_of\\(\\) with class\\-string\\<T of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> and class\\-string\\<TOther of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> will always evaluate to true\\.$#"
             count: 1
         - # false positive
+            path: src/MessageBus/StaticAnalysis/ReflectionHelper.php
+            message: "#^Unused @throws Nepada\\\\MessageBus\\\\StaticAnalysis\\\\StaticAnalysisFailedException annotation$#"
+            count: 1
+        - # false positive
             path: src/MessageBus/Middleware/LoggingMiddleware.php
             message: "#^Throwable is never thrown in the corresponding try block$#"
             count: 1
