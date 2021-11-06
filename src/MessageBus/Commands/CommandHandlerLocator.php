@@ -30,7 +30,7 @@ final class CommandHandlerLocator implements HandlersLocatorInterface
 
     /**
      * @param Envelope $envelope
-     * @return iterable<HandlerDescriptor>
+     * @return iterable<int, HandlerDescriptor>
      */
     public function getHandlers(Envelope $envelope): iterable
     {
