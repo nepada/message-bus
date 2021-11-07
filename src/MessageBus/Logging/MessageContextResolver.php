@@ -59,8 +59,8 @@ final class MessageContextResolver
         $context['messageType'] = MessageType::fromMessage($envelope->getMessage())->toString();
 
         $counter = 1;
-        /** @var HandledStamp $handledStamp */
         foreach ($envelope->all(HandledStamp::class) as $handledStamp) {
+            /** @var HandledStamp $handledStamp */
             $suffix = $counter === 1 ? '' : "_$counter";
             $context["handlerType{$suffix}"] = explode('::', $handledStamp->getHandlerName(), 2)[0];
             $counter++;

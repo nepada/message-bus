@@ -1,6 +1,5 @@
 includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/pepakriz/phpstan-exception-rules/extension.neon
     - vendor/spaze/phpstan-disallowed-calls/extension.neon
     - vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
     - tests/PHPStan/disallowedCalls.neon
@@ -11,8 +10,12 @@ parameters:
     paths:
         - src
 
-    exceptionRules:
-        uncheckedExceptions:
+    exceptions:
+        implicitThrows: false
+        check:
+            missingCheckedExceptionInThrows: true
+            tooWideThrowType: true
+        uncheckedExceptionClasses:
             - LogicException
             - Nette\InvalidStateException
             - Psr\Container\ContainerExceptionInterface
@@ -27,27 +30,19 @@ parameters:
             path: src/MessageBus/StaticAnalysis/HandlerType.php
             message: "#^Call to function is_subclass_of\\(\\) with class\\-string\\<T of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> and class\\-string\\<TOther of Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\> will always evaluate to true\\.$#"
             count: 1
-        - # false positive
+        -
+            message: "#^Method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\ReflectionHelper\\:\\:requireClassReflection\\(\\) has Nepada\\\\MessageBus\\\\StaticAnalysis\\\\StaticAnalysisFailedException in PHPDoc @throws tag but it's not thrown\\.$#"
+            count: 1
             path: src/MessageBus/StaticAnalysis/ReflectionHelper.php
-            message: "#^Unused @throws Nepada\\\\MessageBus\\\\StaticAnalysis\\\\StaticAnalysisFailedException annotation$#"
+        -
+            message: "#^Dead catch \\- ReflectionException is never thrown in the try block\\.$#"
             count: 1
+            path: src/MessageBus/StaticAnalysis/ReflectionHelper.php
         - # false positive
             path: src/MessageBus/Middleware/LoggingMiddleware.php
-            message: "#^Throwable is never thrown in the corresponding try block$#"
-            count: 1
-        - # false positive
-            path: src/MessageBus/Middleware/LoggingMiddleware.php
-            message: "#^Missing @throws Throwable annotation$#"
+            message: "#^Dead catch - Throwable is never thrown in the try block\\.$#"
             count: 1
         - # false positive
             path: src/MessageBus/Commands/MessengerCommandBus.php
-            message: "#^Symfony\\\\Component\\\\Messenger\\\\Exception\\\\HandlerFailedException is never thrown in the corresponding try block$#"
-            count: 1
-        - # intended
-            path: src/MessageBus/Commands/MessengerCommandBus.php
-            message: "#^Missing @throws Throwable annotation$#"
-            count: 1
-        - # intended
-            path: src/MessageBus/Commands/MessengerCommandBus.php
-            message: "#^Missing @throws Symfony\\\\Component\\\\Messenger\\\\Exception\\\\HandlerFailedException annotation$#"
+            message: "#^Dead catch - Symfony\\\\Component\\\\Messenger\\\\Exception\\\\HandlerFailedException is never thrown in the try block\\.#"
             count: 1
