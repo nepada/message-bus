@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace NepadaTests\MessageBus\Logging\Fixtures;
 
-class TestLoggableMessage
+class TestLoggableMessage extends \stdClass
 {
 
     /**
