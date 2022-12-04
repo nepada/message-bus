@@ -46,3 +46,7 @@ parameters:
             path: src/MessageBus/Commands/MessengerCommandBus.php
             message: "#^Dead catch - Symfony\\\\Component\\\\Messenger\\\\Exception\\\\HandlerFailedException is never thrown in the try block\\.#"
             count: 1
+        - # false positive
+            message: "#^Casting to string something that's already string\\.$#"
+            count: 1
+            path: src/MessageBus/StaticAnalysis/MessageType.php
