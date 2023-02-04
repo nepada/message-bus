@@ -80,7 +80,9 @@ class PreventNestedHandlingMiddlewareTest extends TestCase
 
     private function createTestEnvelope(): Envelope
     {
-        return new Envelope((object) ['testMessage' => true], [new BusNameStamp('test')]);
+        $message = new \stdClass();
+        $message->testMessage = true;
+        return new Envelope($message, [new BusNameStamp('test')]);
     }
 
 }
