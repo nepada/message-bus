@@ -31,6 +31,22 @@ parameters:
             message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
             count: 1
             path: tests/MessageBus/StaticAnalysis/Events/EventSubscriberValidatorTest.phpt
+        - # intentional for tests
+            message: "#^Method NepadaTests\\\\MessageBus\\\\StaticAnalysis\\\\Commands\\\\Fixtures\\\\HandleMethodHasNoReturnTypeHandler\\:\\:__invoke\\(\\) has no return type specified\\.$#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Commands/Fixtures/HandleMethodHasNoReturnTypeHandler.php
+        - # intentional for tests
+            message: "#^Method NepadaTests\\\\MessageBus\\\\StaticAnalysis\\\\Events\\\\Fixtures\\\\HandleMethodHasNullReturnTypeOnSomethingValidHappened\\:\\:__invoke\\(\\) has no return type specified\\.$#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Events/Fixtures/HandleMethodHasNullReturnTypeOnSomethingValidHappened.php
+        - # intentional for tests
+            message: "#^Missing native return typehint (never|void)#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Commands/Fixtures/HandleMethodHasNoReturnTypeHandler.php
+        - # intentional for tests
+            message: "#^Missing native return typehint (never|void)$#"
+            count: 1
+            path: tests/MessageBus/StaticAnalysis/Events/Fixtures/HandleMethodHasNullReturnTypeOnSomethingValidHappened.php
         -
             message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(array\\<Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\>\\|Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\)\\: mixed\\)\\|null, Closure\\(Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\HandledStamp\\)\\: string given\\.$#"
             count: 1

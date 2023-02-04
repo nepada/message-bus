@@ -9,12 +9,12 @@ final class HandleMethodHasNullReturnTypeOnSomethingValidHappened implements Eve
 {
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint
      * @param SomethingValidHappenedEvent $event
-     * @return mixed
      */
     public function __invoke(SomethingValidHappenedEvent $event)
     {
-        return null;
+        throw new \Exception();
     }
 
 }
