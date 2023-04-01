@@ -55,7 +55,7 @@ final class HandlerType
      * @param HandlerType<TOther> $handlerType
      * @return bool
      */
-    public function isSubtypeOf(HandlerType $handlerType): bool
+    public function isSubtypeOf(self $handlerType): bool
     {
         return is_subclass_of($this->type, $handlerType->toString());
     }
