@@ -42,7 +42,6 @@ class CommandHandlerValidatorTest extends TestCase
 
     /**
      * @dataProvider getDataForValidateFails
-     * @param string $handlerClassName
      * @param string|NULL $expectedExceptionMessage
      */
     public function testValidateFails(string $handlerClassName, ?string $expectedExceptionMessage = null): void

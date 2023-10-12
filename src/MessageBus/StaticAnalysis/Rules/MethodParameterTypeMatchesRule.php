@@ -17,7 +17,6 @@ final class MethodParameterTypeMatchesRule
     }
 
     /**
-     * @param ReflectionParameter $parameter
      * @throws StaticAnalysisFailedException
      */
     public function validate(ReflectionParameter $parameter): void

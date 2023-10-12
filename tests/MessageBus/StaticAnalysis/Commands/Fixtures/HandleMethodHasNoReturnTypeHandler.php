@@ -10,7 +10,6 @@ final class HandleMethodHasNoReturnTypeHandler implements CommandHandler
 
     /**
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint
-     * @param ValidCommand $command
      */
     public function __invoke(ValidCommand $command)
     {

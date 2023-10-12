@@ -64,7 +64,6 @@ final class MessageType
     }
 
     /**
-     * @param string $suffix
      * @return string message name without namespace and suffix
      * @throws StaticAnalysisFailedException
      */

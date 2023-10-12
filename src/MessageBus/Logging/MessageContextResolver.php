@@ -25,8 +25,6 @@ final class MessageContextResolver
     }
 
     /**
-     * @param Envelope $envelope
-     * @param \Throwable|null $exception
      * @return mixed[]
      */
     public function getContext(Envelope $envelope, ?\Throwable $exception = null): array
@@ -50,7 +48,6 @@ final class MessageContextResolver
     }
 
     /**
-     * @param Envelope $envelope
      * @return mixed[]
      */
     private function getEnvelopeContext(Envelope $envelope): array
@@ -119,7 +116,6 @@ final class MessageContextResolver
 
     /**
      * @param mixed[] $array
-     * @param string $prefix
      * @return mixed[]
      */
     private function prefixArrayKeys(array $array, string $prefix): array

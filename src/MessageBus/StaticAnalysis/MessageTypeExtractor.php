@@ -13,7 +13,6 @@ final class MessageTypeExtractor
     /**
      * @template T of MessageHandlerInterface
      * @param HandlerType<T> $handlerType
-     * @return MessageType
      * @throws StaticAnalysisFailedException
      */
     public function extract(HandlerType $handlerType): MessageType

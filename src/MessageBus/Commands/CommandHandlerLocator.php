@@ -19,7 +19,6 @@ final class CommandHandlerLocator implements HandlersLocatorInterface
     private array $serviceNameByMessageType;
 
     /**
-     * @param ContainerInterface $container
      * @param array<class-string, string> $serviceNameByMessageType
      */
     public function __construct(ContainerInterface $container, array $serviceNameByMessageType)
@@ -29,7 +28,6 @@ final class CommandHandlerLocator implements HandlersLocatorInterface
     }
 
     /**
-     * @param Envelope $envelope
      * @return iterable<int, HandlerDescriptor>
      */
     public function getHandlers(Envelope $envelope): iterable

@@ -7,7 +7,6 @@ final class PrivateClassPropertiesExtractor
 {
 
     /**
-     * @param object $object
      * @return mixed[]
      */
     public function extract(object $object): array

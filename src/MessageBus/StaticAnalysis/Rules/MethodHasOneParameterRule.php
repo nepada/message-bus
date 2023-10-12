@@ -10,7 +10,6 @@ final class MethodHasOneParameterRule
 {
 
     /**
-     * @param ReflectionMethod $method
      * @throws StaticAnalysisFailedException
      */
     public function validate(ReflectionMethod $method): void

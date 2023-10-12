@@ -64,9 +64,6 @@ final class ConfigurableHandlerValidator implements MessageHandlerValidator
     }
 
     /**
-     * @param string $handlerClass
-     * @param string $shortMessageName
-     * @param MessageHandlerValidationConfiguration $configuration
      * @throws StaticAnalysisFailedException
      */
     private function validateHandlerClassName(string $handlerClass, string $shortMessageName, MessageHandlerValidationConfiguration $configuration): void

@@ -53,7 +53,6 @@ final class HandlerType
     /**
      * @template TOther of MessageHandlerInterface
      * @param HandlerType<TOther> $handlerType
-     * @return bool
      */
     public function isSubtypeOf(self $handlerType): bool
     {

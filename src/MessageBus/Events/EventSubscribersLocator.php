@@ -19,7 +19,6 @@ final class EventSubscribersLocator implements HandlersLocatorInterface
     private array $serviceNamesByMessageType;
 
     /**
-     * @param ContainerInterface $container
      * @param array<class-string, string[]> $serviceNamesByMessageType
      */
     public function __construct(ContainerInterface $container, array $serviceNamesByMessageType)
@@ -29,7 +28,6 @@ final class EventSubscribersLocator implements HandlersLocatorInterface
     }
 
     /**
-     * @param Envelope $envelope
      * @return iterable<int, HandlerDescriptor>
      */
     public function getHandlers(Envelope $envelope): iterable

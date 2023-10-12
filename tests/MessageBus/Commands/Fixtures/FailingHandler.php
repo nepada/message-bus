@@ -9,7 +9,6 @@ class FailingHandler implements CommandHandler
 {
 
     /**
-     * @param FailingCommand $command
      * @throws CustomException
      */
     public function __invoke(FailingCommand $command): void

@@ -42,7 +42,6 @@ class EventSubscriberValidatorTest extends TestCase
 
     /**
      * @dataProvider getDataForValidateFails
-     * @param string $subscriberClassName
      * @param string|NULL $expectedExceptionMessage
      */
     public function testValidateFails(string $subscriberClassName, ?string $expectedExceptionMessage = null): void

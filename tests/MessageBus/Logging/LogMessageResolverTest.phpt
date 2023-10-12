@@ -24,10 +24,6 @@ class LogMessageResolverTest extends TestCase
 
     /**
      * @dataProvider provideDataForTestAllMethods
-     * @param object $message
-     * @param string $expectedHandlingStartedMessage
-     * @param string $expectedHandlingEndedSuccessfullyMessage
-     * @param string $expectedHandlingEndedWithErrorMessage
      */
     public function testAllMethods(
         object $message,

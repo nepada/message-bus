@@ -25,8 +25,6 @@ final class ReflectionHelper
     /**
      * @template T of object
      * @param class-string<T> $class
-     * @param string $methodName
-     * @return \ReflectionMethod
      * @throws StaticAnalysisFailedException
      */
     public static function requireMethodReflection(string $class, string $methodName): \ReflectionMethod

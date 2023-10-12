@@ -9,7 +9,6 @@ final class MethodReturnTypeIsVoidRule
 {
 
     /**
-     * @param \ReflectionMethod $method
      * @throws StaticAnalysisFailedException
      */
     public function validate(\ReflectionMethod $method): void
