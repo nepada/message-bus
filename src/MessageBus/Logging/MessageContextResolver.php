@@ -129,13 +129,7 @@ final class MessageContextResolver
             array_keys($array),
         );
 
-        $result = array_combine($keys, $array);
-
-        if ($result === false) {
-            throw new \LogicException('array_combine failed.');
-        }
-
-        return $result;
+        return array_combine($keys, $array);
     }
 
 }
