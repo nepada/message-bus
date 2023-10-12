@@ -33,7 +33,7 @@ class LogMessageResolverTest extends TestCase
         object $message,
         string $expectedHandlingStartedMessage,
         string $expectedHandlingEndedSuccessfullyMessage,
-        string $expectedHandlingEndedWithErrorMessage
+        string $expectedHandlingEndedWithErrorMessage,
     ): void
     {
         $resolver = new LogMessageResolver();

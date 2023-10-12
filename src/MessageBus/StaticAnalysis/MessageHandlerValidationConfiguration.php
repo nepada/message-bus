@@ -30,7 +30,7 @@ class MessageHandlerValidationConfiguration
         string $handleMethodParameterType = 'object',
         string $messageClassSuffix = '',
         string $handlerClassSuffix = '',
-        string $handlerClassPrefixRegex = ''
+        string $handlerClassPrefixRegex = '',
     )
     {
         $this->handlerClassMustBeFinal = $handlerClassMustBeFinal;

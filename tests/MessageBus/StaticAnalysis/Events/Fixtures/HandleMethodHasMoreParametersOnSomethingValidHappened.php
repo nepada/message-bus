@@ -8,11 +8,7 @@ use Nepada\MessageBus\Events\EventSubscriber;
 final class HandleMethodHasMoreParametersOnSomethingValidHappened implements EventSubscriber
 {
 
-    /**
-     * @param mixed $foo
-     * @param mixed $bar
-     */
-    public function __invoke($foo, $bar): void
+    public function __invoke(mixed $foo, mixed $bar): void
     {
     }
 

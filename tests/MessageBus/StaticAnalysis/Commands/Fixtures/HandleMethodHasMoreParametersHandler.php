@@ -8,11 +8,7 @@ use Nepada\MessageBus\Commands\CommandHandler;
 final class HandleMethodHasMoreParametersHandler implements CommandHandler
 {
 
-    /**
-     * @param mixed $foo
-     * @param mixed $bar
-     */
-    public function __invoke($foo, $bar): void
+    public function __invoke(mixed $foo, mixed $bar): void
     {
     }
 

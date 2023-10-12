@@ -69,7 +69,7 @@ class PreventNestedHandlingMiddlewareTest extends TestCase
             function () use ($middleware, $failingMiddleware): void {
                 $middleware->handle($this->createTestEnvelope(), new StackMiddleware([$middleware, $failingMiddleware]));
             },
-            get_class($exception),
+            $exception::class,
             $exception->getMessage(),
         );
 

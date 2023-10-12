@@ -30,7 +30,7 @@ final class HandlerType
      */
     public static function fromHandler(MessageHandlerInterface $handler): self
     {
-        return new self(get_class($handler));
+        return new self($handler::class);
     }
 
     /**

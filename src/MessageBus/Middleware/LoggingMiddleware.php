@@ -23,7 +23,7 @@ class LoggingMiddleware implements MiddlewareInterface
     public function __construct(
         LogMessageResolver $logMessageResolver,
         MessageContextResolver $messageContextResolver,
-        ?LoggerInterface $logger = null
+        ?LoggerInterface $logger = null,
     )
     {
         $this->logMessageResolver = $logMessageResolver;

@@ -17,7 +17,7 @@ final class MessageContextResolver
 
     public function __construct(
         PrivateClassPropertiesExtractor $privateClassPropertiesExtractor,
-        string $keyPrefix = ''
+        string $keyPrefix = '',
     )
     {
         $this->privateClassPropertiesExtractor = $privateClassPropertiesExtractor;
@@ -79,7 +79,7 @@ final class MessageContextResolver
         $counter = 1;
         foreach ($nestedExceptions as $nestedException) {
             $suffix = $counter === 1 ? '' : "_$counter";
-            $context["exceptionType{$suffix}"] = get_class($nestedException);
+            $context["exceptionType{$suffix}"] = $nestedException::class;
             $context["exceptionMessage{$suffix}"] = $nestedException->getMessage();
             $counter++;
         }

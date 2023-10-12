@@ -25,7 +25,7 @@ final class MessageType
 
     public static function fromMessage(object $message): self
     {
-        return new self(get_class($message));
+        return new self($message::class);
     }
 
     /**
