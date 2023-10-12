@@ -223,7 +223,7 @@ For Nette Framework integration, consider using [nepada/message-bus-nette](https
 
 - [nepada/message-bus-doctrine](https://github.com/nepada/message-bus-doctrine) Doctrine ORM integration - transaction handling, collecting and emitting domain events from entities, etc.
 - [nepada/message-bus-nette](https://github.com/nepada/message-bus-nette) Nette Framework DI extension.
-- [nepada/phpstan-message-bus](https://github.com/nepada/phpstan-message-bus) adding support for analyzing checked exceptions thrown out of command handlers using [pepakriz/phpstan-exception-rules](https://github.com/pepakriz/phpstan-exception-rules). 
+- [nepada/phpstan-message-bus](https://github.com/nepada/phpstan-message-bus) adding support for propagating checked exceptions thrown out of command handlers up to the command bus caller
 
 
 Credits
