@@ -54,7 +54,6 @@ Example:
 final class DoSomethingHandler implements \Nepada\MessageBus\Commands\CommandHandler
 {
     /**
-     * @param DoSomethingCommand $command
      * @throws SomeException
      */
     public function __invoke(DoSomethingCommand $command): void
@@ -74,6 +73,7 @@ Events must be dispatched during command handling only.
 Event implementation must adhere to these rules:
 - class must implement `Nepada\Events\Event` interface
 - class must be named `<event-name>Event`
+- class must be final
 - event name should be in past tense ("something happened")
 - event must be a simple immutable DTO
 - event must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
