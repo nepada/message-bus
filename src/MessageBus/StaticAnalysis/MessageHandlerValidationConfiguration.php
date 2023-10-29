@@ -23,6 +23,8 @@ class MessageHandlerValidationConfiguration
 
     private string $handlerClassPrefixRegex;
 
+    private bool $messageClassMustBeReadOnly;
+
     public function __construct(
         bool $handlerClassMustBeFinal = true,
         bool $messageClassMustBeFinal = true,
@@ -31,6 +33,7 @@ class MessageHandlerValidationConfiguration
         string $messageClassSuffix = '',
         string $handlerClassSuffix = '',
         string $handlerClassPrefixRegex = '',
+        bool $messageClassMustBeReadOnly = false,
     )
     {
         $this->handlerClassMustBeFinal = $handlerClassMustBeFinal;
@@ -40,9 +43,10 @@ class MessageHandlerValidationConfiguration
         $this->messageClassSuffix = $messageClassSuffix;
         $this->handlerClassSuffix = $handlerClassSuffix;
         $this->handlerClassPrefixRegex = $handlerClassPrefixRegex;
+        $this->messageClassMustBeReadOnly = $messageClassMustBeReadOnly;
     }
 
-    public static function command(): self
+    public static function command(bool $bleedingEdge = false): self
     {
         $configuration = new self();
 
@@ -53,10 +57,12 @@ class MessageHandlerValidationConfiguration
         $configuration->handlerClassSuffix = 'Handler';
         $configuration->handlerClassPrefixRegex = '';
 
+        $configuration->messageClassMustBeReadOnly = $bleedingEdge;
+
         return $configuration;
     }
 
-    public static function event(): self
+    public static function event(bool $bleedingEdge = false): self
     {
         $configuration = new self();
 
@@ -66,6 +72,8 @@ class MessageHandlerValidationConfiguration
         $configuration->messageClassSuffix = 'Event';
         $configuration->handlerClassSuffix = '';
         $configuration->handlerClassPrefixRegex = '(.+)On';
+
+        $configuration->messageClassMustBeReadOnly = $bleedingEdge;
 
         return $configuration;
     }
@@ -103,6 +111,11 @@ class MessageHandlerValidationConfiguration
     public function getHandlerClassPrefixRegex(): string
     {
         return $this->handlerClassPrefixRegex;
+    }
+
+    public function shouldMessageClassBeReadOnly(): bool
+    {
+        return $this->messageClassMustBeReadOnly;
     }
 
 }

@@ -22,6 +22,10 @@ parameters:
     excludePaths:
         - tests/temp/*
 
+    exceptions:
+        uncheckedExceptionClasses:
+            - Throwable
+
     ignoreErrors:
         - # intended
             message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"

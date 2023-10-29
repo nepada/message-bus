@@ -31,6 +31,7 @@ Command implementation must adhere to these rules:
 - class must implement `Nepada\Commands\Command` interface
 - class must be named `<command-name>Command`
 - class must be final
+- class should be readonly
 - command name should be in imperative form ("do something")
 - command must be a simple immutable DTO
 - command must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
@@ -74,6 +75,7 @@ Event implementation must adhere to these rules:
 - class must implement `Nepada\Events\Event` interface
 - class must be named `<event-name>Event`
 - class must be final
+- class should be readonly
 - event name should be in past tense ("something happened")
 - event must be a simple immutable DTO
 - event must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
@@ -106,7 +108,7 @@ Every event may have any number of subscribers, or none at all.
 Configuration & Usage
 ---------------------
 
-### Static analysis
+### Enforcing conventions by static analysis
 
 Most of the conventions described above may be enforced by static analysis.
 The analysis should be run during the compilation of DI container, triggering it at application runtime is not recommended.
@@ -128,6 +130,16 @@ $eventSubscriberConfiguration = MessageHandlerValidationConfiguration::event();
 $eventSubscriberValidator = new ConfigurableHandlerValidator($eventSubscriberConfiguration);
 $eventSubscriberValidator->validate($eventSubscriberType);
 ```
+
+#### Bleeding edge (new rules)
+
+To maintain backwards compatibility new rules are not enforced by default. They can be enabled by passing `$bleedingEdge` flag when creating validator configuration, e.g.  `MessageHandlerValidationConfiguration::command(true)`.
+
+These rules will be enabled in the next major version:
+
+- Message class must be `readonly` (all properties on PHP 8.1, whole class on PHP >=8.2)
+
+### Extracting handled message type from handler class
 
 Use `MessageTypeExtractor` to retrieve the message type that a given command handler or event subscriber handles:
 ```php

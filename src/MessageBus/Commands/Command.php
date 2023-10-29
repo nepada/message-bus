@@ -7,6 +7,7 @@ namespace Nepada\MessageBus\Commands;
  * Command implementation must adhere to these rules:
  * - class must be named `<command-name>Command`
  * - class must be final
+ * - class should be readonly
  * - command name should be in imperative form ("do something")
  * - command must be a simple immutable DTO
  * - command must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)

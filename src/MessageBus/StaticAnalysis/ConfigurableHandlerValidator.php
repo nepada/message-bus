@@ -6,6 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis;
 use Nepada\MessageBus\StaticAnalysis\Rules\ClassExistsRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\ClassHasPublicMethodRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\ClassIsFinalRule;
+use Nepada\MessageBus\StaticAnalysis\Rules\ClassIsReadOnlyRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\ClassNameHasSuffixRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\MethodHasOneParameterRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\MethodParameterNameMatchesRule;
@@ -50,10 +51,14 @@ final class ConfigurableHandlerValidator implements MessageHandlerValidator
 
         (new MethodReturnTypeIsVoidRule())->validate($handleMethod);
 
-        $messageType = $this->messageTypeExtractor->extract(HandlerType::fromString($handlerClass));
+        $messageType = $this->messageTypeExtractor->extract($handlerType);
 
         if ($this->configuration->shouldMessageClassBeFinal()) {
             (new ClassIsFinalRule())->validate($messageType->toString());
+        }
+
+        if ($this->configuration->shouldMessageClassBeReadOnly()) {
+            (new ClassIsReadOnlyRule())->validate($messageType->toString());
         }
 
         $messageClassSuffix = $this->configuration->getMessageClassSuffix();
