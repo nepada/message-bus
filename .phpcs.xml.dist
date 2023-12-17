@@ -39,8 +39,4 @@
         <exclude-pattern>*.phpt</exclude-pattern>
         <exclude-pattern>*/bootstrap.php</exclude-pattern>
     </rule>
-
-    <!-- Requires PHP >=8.2 -->
-    <exclude-pattern>tests/MessageBus/StaticAnalysis/Commands/Fixtures/ValidReadOnlyCommand.php</exclude-pattern>
-    <exclude-pattern>tests/MessageBus/StaticAnalysis/Events/Fixtures/ValidReadOnlyEvent.php</exclude-pattern>
 </ruleset>
