@@ -8,16 +8,4 @@ use Nepada\MessageBus\Commands\Command;
 final class NotReadOnlyCommand implements Command
 {
 
-    public function __construct(
-        public readonly int $value,
-        private string $invalid,
-    )
-    {
-    }
-
-    public function getInvalid(): string
-    {
-        return $this->invalid;
-    }
-
 }
