@@ -8,8 +8,6 @@ use Nepada\MessageBus\StaticAnalysis\HandlerType;
 use Nepada\MessageBus\StaticAnalysis\MessageHandlerValidationConfiguration;
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 use NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\NotReadOnlyHandler;
-use NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\StaticPropertiesHandler;
-use NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\ValidReadOnly81Handler;
 use NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\ValidReadOnlyHandler;
 use NepadaTests\TestCase;
 use Tester\Assert;
@@ -30,10 +28,6 @@ class ReadOnlyCommandValidatorTest extends TestCase
         Assert::noError(function () use ($validator): void {
             $validator->validate(HandlerType::fromString(NotReadOnlyHandler::class));
         });
-
-        Assert::noError(function () use ($validator): void {
-            $validator->validate(HandlerType::fromString(StaticPropertiesHandler::class));
-        });
     }
 
     public function testReadOnlyValidationFails(): void
@@ -42,20 +36,11 @@ class ReadOnlyCommandValidatorTest extends TestCase
 
         Assert::exception(
             function () use ($validator): void {
-                $validator->validate(HandlerType::fromString(StaticPropertiesHandler::class));
-            },
-            StaticAnalysisFailedException::class,
-            'Static analysis failed for class "NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\StaticPropertiesCommand": '
-            . 'Readonly class cannot have static properties',
-        );
-
-        Assert::exception(
-            function () use ($validator): void {
                 $validator->validate(HandlerType::fromString(NotReadOnlyHandler::class));
             },
             StaticAnalysisFailedException::class,
             'Static analysis failed for class "NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\NotReadOnlyCommand": '
-            . 'Property invalid must be readonly',
+            . 'Class must be readonly',
         );
     }
 
@@ -66,15 +51,6 @@ class ReadOnlyCommandValidatorTest extends TestCase
         Assert::noError(function () use ($validator): void {
             $validator->validate(HandlerType::fromString(ValidReadOnlyHandler::class));
         });
-
-        Assert::error(
-            function () use ($validator): void {
-                $validator->validate(HandlerType::fromString(ValidReadOnly81Handler::class));
-            },
-            E_USER_DEPRECATED,
-            'Static analysis failed for class "NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures\ValidReadOnly81Command": '
-            . 'Class must be readonly',
-        );
     }
 
 }

@@ -17,24 +17,8 @@ final class ClassIsReadOnlyRule
     {
         $classReflection = ReflectionHelper::requireClassReflection($type);
 
-        $checkedClassReflection = $classReflection;
-        while ($checkedClassReflection !== false) {
-            if ($classReflection->getStaticProperties() !== []) {
-                throw StaticAnalysisFailedException::with('Readonly class cannot have static properties', $classReflection->getName());
-            }
-
-            foreach ($classReflection->getProperties() as $property) {
-                if (! $property->isReadOnly()) {
-                    throw StaticAnalysisFailedException::with(sprintf('Property %s must be readonly', $property->getName()), $classReflection->getName());
-                }
-            }
-
-            $checkedClassReflection = $checkedClassReflection->getParentClass();
-        }
-
         if (! $classReflection->isReadOnly()) {
-            $exception = StaticAnalysisFailedException::with('Class must be readonly', $classReflection->getName());
-            trigger_error($exception->getMessage(), E_USER_DEPRECATED);
+            throw StaticAnalysisFailedException::with('Class must be readonly', $classReflection->getName());
         }
     }
 
