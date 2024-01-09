@@ -5,7 +5,7 @@ namespace NepadaTests\MessageBus\StaticAnalysis\Events\Fixtures;
 
 use Nepada\MessageBus\Events\Event;
 
-final class SomethingValidHappenedEvent implements Event
+final readonly class SomethingValidHappenedEvent implements Event
 {
 
 }

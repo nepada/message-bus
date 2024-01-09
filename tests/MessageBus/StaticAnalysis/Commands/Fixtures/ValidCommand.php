@@ -5,7 +5,7 @@ namespace NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures;
 
 use Nepada\MessageBus\Commands\Command;
 
-final class ValidCommand implements Command
+final readonly class ValidCommand implements Command
 {
 
 }

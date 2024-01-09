@@ -5,7 +5,7 @@ namespace NepadaTests\MessageBus\StaticAnalysis\Events\Fixtures;
 
 use Nepada\MessageBus\Events\Event;
 
-final class IncorrectName implements Event
+final readonly class IncorrectName implements Event
 {
 
 }

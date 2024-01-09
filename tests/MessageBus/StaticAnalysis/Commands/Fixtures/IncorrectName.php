@@ -5,7 +5,7 @@ namespace NepadaTests\MessageBus\StaticAnalysis\Commands\Fixtures;
 
 use Nepada\MessageBus\Commands\Command;
 
-final class IncorrectName implements Command
+final readonly class IncorrectName implements Command
 {
 
 }
