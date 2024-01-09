@@ -3,13 +3,14 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\StaticAnalysis;
 
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Nepada\MessageBus\Commands\CommandHandler;
+use Nepada\MessageBus\Events\EventSubscriber;
 
 interface MessageHandlerValidator
 {
 
     /**
-     * @template T of MessageHandlerInterface
+     * @template T of CommandHandler|EventSubscriber
      * @param HandlerType<T> $handlerType
      * @throws StaticAnalysisFailedException
      */

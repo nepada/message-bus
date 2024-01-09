@@ -3,10 +3,11 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\StaticAnalysis;
 
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Nepada\MessageBus\Commands\CommandHandler;
+use Nepada\MessageBus\Events\EventSubscriber;
 
 /**
- * @template T of MessageHandlerInterface
+ * @template T of CommandHandler|EventSubscriber
  */
 final class HandlerType
 {
@@ -28,7 +29,7 @@ final class HandlerType
      * @param T $handler
      * @return HandlerType<T>
      */
-    public static function fromHandler(MessageHandlerInterface $handler): self
+    public static function fromHandler(CommandHandler|EventSubscriber $handler): self
     {
         return new self($handler::class);
     }
@@ -51,7 +52,7 @@ final class HandlerType
     }
 
     /**
-     * @template TOther of MessageHandlerInterface
+     * @template TOther of CommandHandler|EventSubscriber
      * @param HandlerType<TOther> $handlerType
      */
     public function isSubtypeOf(self $handlerType): bool
