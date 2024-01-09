@@ -31,7 +31,7 @@ Command implementation must adhere to these rules:
 - class must implement `Nepada\Commands\Command` interface
 - class must be named `<command-name>Command`
 - class must be final
-- class should be readonly
+- class must be readonly
 - command name should be in imperative form ("do something")
 - command must be a simple immutable DTO
 - command must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
@@ -75,7 +75,7 @@ Event implementation must adhere to these rules:
 - class must implement `Nepada\Events\Event` interface
 - class must be named `<event-name>Event`
 - class must be final
-- class should be readonly
+- class must be readonly
 - event name should be in past tense ("something happened")
 - event must be a simple immutable DTO
 - event must not contain entities, only references (i.e. `int $orderId`, not `Order $order`)
@@ -136,8 +136,7 @@ $eventSubscriberValidator->validate($eventSubscriberType);
 To maintain backwards compatibility new rules are not enforced by default. They can be enabled by passing `$bleedingEdge` flag when creating validator configuration, e.g.  `MessageHandlerValidationConfiguration::command(true)`.
 
 These rules will be enabled in the next major version:
-
-- Message class must be `readonly` (all properties on PHP 8.1, whole class on PHP >=8.2)
+(none at the moment)
 
 ### Extracting handled message type from handler class
 

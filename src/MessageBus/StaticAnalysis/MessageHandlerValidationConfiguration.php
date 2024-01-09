@@ -33,7 +33,7 @@ class MessageHandlerValidationConfiguration
         string $messageClassSuffix = '',
         string $handlerClassSuffix = '',
         string $handlerClassPrefixRegex = '',
-        bool $messageClassMustBeReadOnly = false,
+        bool $messageClassMustBeReadOnly = true,
     )
     {
         $this->handlerClassMustBeFinal = $handlerClassMustBeFinal;
@@ -57,8 +57,6 @@ class MessageHandlerValidationConfiguration
         $configuration->handlerClassSuffix = 'Handler';
         $configuration->handlerClassPrefixRegex = '';
 
-        $configuration->messageClassMustBeReadOnly = $bleedingEdge;
-
         return $configuration;
     }
 
@@ -72,8 +70,6 @@ class MessageHandlerValidationConfiguration
         $configuration->messageClassSuffix = 'Event';
         $configuration->handlerClassSuffix = '';
         $configuration->handlerClassPrefixRegex = '(.+)On';
-
-        $configuration->messageClassMustBeReadOnly = $bleedingEdge;
 
         return $configuration;
     }
