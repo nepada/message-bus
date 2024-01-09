@@ -3,8 +3,6 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\Commands;
 
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-
 /**
  * Command handler implementation must adhere to these rules:
  * - class must be named `<command-name>Handler`
@@ -21,7 +19,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
  *      public function __invoke(DoSomethingCommand $command): void {}
  * }
  */
-interface CommandHandler extends MessageHandlerInterface
+interface CommandHandler
 {
 
 }

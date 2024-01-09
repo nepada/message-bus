@@ -3,8 +3,6 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\Events;
 
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-
 /**
  * Event subscriber implementation must adhere to these rules:
  * - class must be named `<do-something>On<event-name>`
@@ -21,7 +19,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
  *      public function __invoke(SomethingHappenedEvent $event): void {}
  * }
  */
-interface EventSubscriber extends MessageHandlerInterface
+interface EventSubscriber
 {
 
 }

@@ -28,11 +28,11 @@ parameters:
 
     ignoreErrors:
         - # intended
-            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
+            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Nepada\\\\MessageBus\\\\Commands\\\\CommandHandler\\|Nepada\\\\MessageBus\\\\Events\\\\EventSubscriber\\>\\:\\:fromString\\(\\) expects class\\-string\\<Nepada\\\\MessageBus\\\\Commands\\\\CommandHandler\\|Nepada\\\\MessageBus\\\\Events\\\\EventSubscriber\\>, string given\\.$#"
             count: 1
             path: tests/MessageBus/StaticAnalysis/Commands/CommandHandlerValidatorTest.phpt
         - # intended
-            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>\\:\\:fromString\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Messenger\\\\Handler\\\\MessageHandlerInterface\\>, string given\\.$#"
+            message: "#^Parameter \\#1 \\$type of static method Nepada\\\\MessageBus\\\\StaticAnalysis\\\\HandlerType\\<Nepada\\\\MessageBus\\\\Commands\\\\CommandHandler\\|Nepada\\\\MessageBus\\\\Events\\\\EventSubscriber\\>\\:\\:fromString\\(\\) expects class\\-string\\<Nepada\\\\MessageBus\\\\Commands\\\\CommandHandler\\|Nepada\\\\MessageBus\\\\Events\\\\EventSubscriber\\>, string given\\.$#"
             count: 1
             path: tests/MessageBus/StaticAnalysis/Events/EventSubscriberValidatorTest.phpt
         - # intentional for tests
