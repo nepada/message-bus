@@ -59,25 +59,8 @@ class ReadOnlyEventValidatorTest extends TestCase
         );
     }
 
-    public function testReadOnlyValidationSucceedsOnPhp81(): void
-    {
-        if (PHP_VERSION_ID >= 8_02_00) {
-            $this->skip();
-        }
-
-        $validator = new ConfigurableHandlerValidator(MessageHandlerValidationConfiguration::event(true));
-
-        Assert::noError(function () use ($validator): void {
-            $validator->validate(HandlerType::fromString(DoSomethingOnValidReadOnly81::class));
-        });
-    }
-
     public function testReadOnlyValidationSucceeds(): void
     {
-        if (PHP_VERSION_ID < 8_02_00) {
-            $this->skip();
-        }
-
         $validator = new ConfigurableHandlerValidator(MessageHandlerValidationConfiguration::event(true));
 
         Assert::noError(function () use ($validator): void {

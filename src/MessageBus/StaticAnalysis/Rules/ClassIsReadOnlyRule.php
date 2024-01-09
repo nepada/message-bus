@@ -32,10 +32,6 @@ final class ClassIsReadOnlyRule
             $checkedClassReflection = $checkedClassReflection->getParentClass();
         }
 
-        if (PHP_VERSION_ID < 8_02_00) {
-            return;
-        }
-
         if (! $classReflection->isReadOnly()) {
             $exception = StaticAnalysisFailedException::with('Class must be readonly', $classReflection->getName());
             trigger_error($exception->getMessage(), E_USER_DEPRECATED);

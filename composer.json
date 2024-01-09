@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1.0 <8.4",
+        "php": ">=8.2.0 <8.4",
         "symfony/messenger": "^6.4@dev",
         "psr/container": "^1.0 || ^2.0",
         "psr/log": "^1.1 || ^2.0 || ^3.0"
