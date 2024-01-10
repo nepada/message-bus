@@ -22,7 +22,7 @@ final class MessengerCommandBus implements CommandBus
             $this->messageBus->dispatch($command);
 
         } catch (HandlerFailedException $exception) {
-            $nestedExceptions = $exception->getNestedExceptions();
+            $nestedExceptions = $exception->getWrappedExceptions();
             if (count($nestedExceptions) === 1) {
                 throw reset($nestedExceptions);
             }

@@ -31,7 +31,7 @@ final class MessageContextResolver
     {
         if ($exception instanceof HandlerFailedException) {
             $envelope = $exception->getEnvelope();
-            $nestedExceptions = $exception->getNestedExceptions();
+            $nestedExceptions = $exception->getWrappedExceptions();
         } elseif ($exception !== null) {
             $nestedExceptions = [$exception];
         }
