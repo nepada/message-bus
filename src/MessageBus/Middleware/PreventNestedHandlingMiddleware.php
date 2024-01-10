@@ -11,7 +11,7 @@ use Symfony\Component\Messenger\Middleware\StackInterface;
 /**
  * Do not allow nested handling of messages.
  */
-class PreventNestedHandlingMiddleware implements MiddlewareInterface
+final class PreventNestedHandlingMiddleware implements MiddlewareInterface
 {
 
     private bool $isHandling = false;
