@@ -12,6 +12,16 @@ if (InstalledVersions::satisfies(new VersionParser(), 'symfony/messenger', '<7.1
         'path' => '../../src/MessageBus/Middleware/LoggingMiddleware.php',
         'count' => 1,
     ];
+    $config['parameters']['ignoreErrors'][] = [
+        'message' => '#^Dead catch - Throwable is never thrown in the try block\\.$#',
+        'path' => '../../src/MessageBus/Middleware/LoggingMiddleware.php',
+        'count' => 1,
+    ];
+    $config['parameters']['ignoreErrors'][] = [
+        'message' => '#^Dead catch - Symfony\\\\Component\\\\Messenger\\\\Exception\\\\HandlerFailedException is never thrown in the try block\\.#',
+        'path' => '../../src/MessageBus/Commands/MessengerCommandBus.php',
+        'count' => 1,
+    ];
 }
 
 return $config;
