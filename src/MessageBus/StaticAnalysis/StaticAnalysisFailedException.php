@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\StaticAnalysis;
 
-class StaticAnalysisFailedException extends \RuntimeException
+final class StaticAnalysisFailedException extends \RuntimeException
 {
 
     public static function with(string $problem, string $type): self
