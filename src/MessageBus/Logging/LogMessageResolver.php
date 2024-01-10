@@ -29,7 +29,7 @@ final class LogMessageResolver
     public function getHandlingEndedWithErrorMessage(Envelope $envelope, \Throwable $exception): string
     {
         if ($exception instanceof HandlerFailedException) {
-            $nestedExceptions = $exception->getNestedExceptions();
+            $nestedExceptions = $exception->getWrappedExceptions();
         } else {
             $nestedExceptions = [$exception];
         }
