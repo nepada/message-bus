@@ -23,6 +23,7 @@ parameters:
             - LogicException
             - Nette\InvalidStateException
             - Psr\Container\ContainerExceptionInterface
+            - Symfony\Component\Messenger\Exception\ExceptionInterface
 
     ignoreErrors:
         - '~Call to an undefined method ReflectionType::getName\(\)~'

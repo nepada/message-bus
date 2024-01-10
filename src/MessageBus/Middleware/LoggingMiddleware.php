@@ -8,6 +8,7 @@ use Nepada\MessageBus\Logging\MessageContextResolver;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Messenger\Envelope;
+use Symfony\Component\Messenger\Exception\ExceptionInterface;
 use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use Symfony\Component\Messenger\Middleware\StackInterface;
 
@@ -31,6 +32,9 @@ class LoggingMiddleware implements MiddlewareInterface
         $this->logger = $logger ?? new NullLogger();
     }
 
+    /**
+     * @throws ExceptionInterface
+     */
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
     {
         $this->logger->info(
