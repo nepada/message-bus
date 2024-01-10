@@ -7,7 +7,7 @@ use Nepada\MessageBus\Commands\Command;
 use Nepada\MessageBus\Events\Event;
 use Nepada\MessageBus\StaticAnalysis\Rules\ClassNameHasSuffixRule;
 
-final class MessageType
+final readonly class MessageType
 {
 
     /**

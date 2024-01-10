@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\Commands;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class MessengerCommandBus implements CommandBus
+final readonly class MessengerCommandBus implements CommandBus
 {
 
     private MessageBusInterface $messageBus;

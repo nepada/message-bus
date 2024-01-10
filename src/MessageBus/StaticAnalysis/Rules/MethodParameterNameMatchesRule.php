@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis\Rules;
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 use ReflectionParameter;
 
-final class MethodParameterNameMatchesRule
+final readonly class MethodParameterNameMatchesRule
 {
 
     private string $parameterName;

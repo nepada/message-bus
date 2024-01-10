@@ -7,7 +7,7 @@ use Nepada\MessageBus\StaticAnalysis\MessageType;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 
-final class LogMessageResolver
+final readonly class LogMessageResolver
 {
 
     public function getHandlingStartedMessage(Envelope $envelope): string

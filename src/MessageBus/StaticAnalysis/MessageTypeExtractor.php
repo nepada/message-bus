@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis;
 use Nepada\MessageBus\Commands\CommandHandler;
 use Nepada\MessageBus\Events\EventSubscriber;
 
-final class MessageTypeExtractor
+final readonly class MessageTypeExtractor
 {
 
     public const METHOD_NAME = '__invoke';

@@ -9,7 +9,7 @@ use Nepada\MessageBus\Events\EventSubscriber;
 /**
  * @template T of CommandHandler|EventSubscriber
  */
-final class HandlerType
+final readonly class HandlerType
 {
 
     /**

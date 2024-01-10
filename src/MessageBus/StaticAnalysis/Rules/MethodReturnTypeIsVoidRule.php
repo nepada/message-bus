@@ -5,7 +5,7 @@ namespace Nepada\MessageBus\StaticAnalysis\Rules;
 
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 
-final class MethodReturnTypeIsVoidRule
+final readonly class MethodReturnTypeIsVoidRule
 {
 
     /**

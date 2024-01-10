@@ -8,7 +8,7 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 
-final class MessageContextResolver
+final readonly class MessageContextResolver
 {
 
     private string $keyPrefix;

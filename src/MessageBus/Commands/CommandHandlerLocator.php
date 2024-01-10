@@ -8,7 +8,7 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\HandlerDescriptor;
 use Symfony\Component\Messenger\Handler\HandlersLocatorInterface;
 
-final class CommandHandlerLocator implements HandlersLocatorInterface
+final readonly class CommandHandlerLocator implements HandlersLocatorInterface
 {
 
     private ContainerInterface $container;

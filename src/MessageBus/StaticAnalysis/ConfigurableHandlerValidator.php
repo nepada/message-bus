@@ -14,7 +14,7 @@ use Nepada\MessageBus\StaticAnalysis\Rules\MethodParameterTypeMatchesRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\MethodReturnTypeIsVoidRule;
 use Nepada\MessageBus\StaticAnalysis\Rules\ShortClassNameMatchesRule;
 
-final class ConfigurableHandlerValidator implements MessageHandlerValidator
+final readonly class ConfigurableHandlerValidator implements MessageHandlerValidator
 {
 
     private MessageHandlerValidationConfiguration $configuration;

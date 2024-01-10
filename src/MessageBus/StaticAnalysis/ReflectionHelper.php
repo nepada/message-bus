@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\StaticAnalysis;
 
-final class ReflectionHelper
+final readonly class ReflectionHelper
 {
 
     /**

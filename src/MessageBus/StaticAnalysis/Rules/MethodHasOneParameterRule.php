@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis\Rules;
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 use ReflectionMethod;
 
-final class MethodHasOneParameterRule
+final readonly class MethodHasOneParameterRule
 {
 
     /**

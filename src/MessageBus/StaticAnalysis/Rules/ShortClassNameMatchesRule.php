@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis\Rules;
 use Nepada\MessageBus\StaticAnalysis\ReflectionHelper;
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 
-final class ShortClassNameMatchesRule
+final readonly class ShortClassNameMatchesRule
 {
 
     private string $regexPattern;

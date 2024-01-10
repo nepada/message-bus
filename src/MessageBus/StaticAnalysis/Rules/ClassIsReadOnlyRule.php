@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis\Rules;
 use Nepada\MessageBus\StaticAnalysis\ReflectionHelper;
 use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 
-final class ClassIsReadOnlyRule
+final readonly class ClassIsReadOnlyRule
 {
 
     /**

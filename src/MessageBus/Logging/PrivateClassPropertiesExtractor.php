@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Nepada\MessageBus\Logging;
 
-final class PrivateClassPropertiesExtractor
+final readonly class PrivateClassPropertiesExtractor
 {
 
     /**

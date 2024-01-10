@@ -12,7 +12,7 @@ use Symfony\Component\Messenger\Exception\ExceptionInterface;
 use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use Symfony\Component\Messenger\Middleware\StackInterface;
 
-final class LoggingMiddleware implements MiddlewareInterface
+final readonly class LoggingMiddleware implements MiddlewareInterface
 {
 
     private LogMessageResolver $logMessageResolver;

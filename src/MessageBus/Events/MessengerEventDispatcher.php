@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\Events;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 
-final class MessengerEventDispatcher implements EventDispatcher
+final readonly class MessengerEventDispatcher implements EventDispatcher
 {
 
     private MessageBusInterface $messageBus;

@@ -6,7 +6,7 @@ namespace Nepada\MessageBus\StaticAnalysis;
 use Nepada\MessageBus\Commands\Command;
 use Nepada\MessageBus\Events\Event;
 
-class MessageHandlerValidationConfiguration
+readonly class MessageHandlerValidationConfiguration
 {
 
     private bool $handlerClassMustBeFinal;
@@ -48,30 +48,24 @@ class MessageHandlerValidationConfiguration
 
     public static function command(bool $bleedingEdge = false): self
     {
-        $configuration = new self();
-
-        $configuration->handleMethodParameterName = 'command';
-        $configuration->handleMethodParameterType = Command::class;
-
-        $configuration->messageClassSuffix = 'Command';
-        $configuration->handlerClassSuffix = 'Handler';
-        $configuration->handlerClassPrefixRegex = '';
-
-        return $configuration;
+        return new self(
+            handleMethodParameterName: 'command',
+            handleMethodParameterType: Command::class,
+            messageClassSuffix: 'Command',
+            handlerClassSuffix: 'Handler',
+            handlerClassPrefixRegex: '',
+        );
     }
 
     public static function event(bool $bleedingEdge = false): self
     {
-        $configuration = new self();
-
-        $configuration->handleMethodParameterName = 'event';
-        $configuration->handleMethodParameterType = Event::class;
-
-        $configuration->messageClassSuffix = 'Event';
-        $configuration->handlerClassSuffix = '';
-        $configuration->handlerClassPrefixRegex = '(.+)On';
-
-        return $configuration;
+        return new self(
+            handleMethodParameterName: 'event',
+            handleMethodParameterType: Event::class,
+            messageClassSuffix: 'Event',
+            handlerClassSuffix: '',
+            handlerClassPrefixRegex: '(.+)On',
+        );
     }
 
     public function shouldHandlerClassBeFinal(): bool
