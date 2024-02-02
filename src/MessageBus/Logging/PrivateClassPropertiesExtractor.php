@@ -22,7 +22,7 @@ final readonly class PrivateClassPropertiesExtractor
         foreach ($classes as $class) {
             // magic :)
             $extract = \Closure::bind(
-                fn ($object) => get_object_vars($object),
+                fn (object $object): array => get_object_vars($object),
                 null,
                 $class,
             );
