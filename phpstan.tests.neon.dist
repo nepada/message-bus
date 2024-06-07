@@ -55,7 +55,3 @@ parameters:
             message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(array\\<Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\>\\|Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\)\\: mixed\\)\\|null, Closure\\(Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\HandledStamp\\)\\: string given\\.$#"
             count: 1
             path: tests/MessageBus/Middleware/LoggingMiddlewareTest.phpt
-        - # false positive
-            message: "#^Invalid var phpdoc of \\$handledStamps\\. Cannot assign array\\<array\\<Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\>\\|Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\> to array\\<Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\HandledStamp\\>$#"
-            count: 1
-            path: tests/MessageBus/Middleware/PreventNestedHandlingMiddlewareTest.phpt
