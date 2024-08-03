@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace NepadaTests\MessageBus\Logging;
 
 use Psr\Log\AbstractLogger;
+use function is_string;
 
 // phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
 final class TestLogger extends AbstractLogger
@@ -26,6 +27,7 @@ final class TestLogger extends AbstractLogger
      */
     public function log(mixed $level, $message, array $context = []): void
     {
+        assert(is_string($level) || is_int($level));
         $record = [
             'level' => $level,
             'message' => $message,
