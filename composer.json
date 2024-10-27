@@ -20,15 +20,15 @@
     ],
     "require": {
         "php": ">=8.2.0 <8.5",
-        "symfony/messenger": "^6.4@dev || ^7.0@dev",
+        "symfony/messenger": "^6.4.3@dev || ^7.0.3@dev",
         "psr/container": "^1.0 || ^2.0",
         "psr/log": "^1.1 || ^2.0 || ^3.0"
     },
     "require-dev": {
-        "nette/tester": "2.5.3",
+        "nette/tester": "2.5.4",
         "phpstan/phpstan": "1.12.5",
         "phpstan/phpstan-strict-rules": "1.6.1",
-        "nepada/phpstan-nette-tester": "1.2.0",
+        "nepada/phpstan-nette-tester": "1.2.1",
         "spaze/phpstan-disallowed-calls": "3.4.0",
         "shipmonk/phpstan-rules": "3.2.0",
         "php-parallel-lint/php-parallel-lint": "1.4.0",
