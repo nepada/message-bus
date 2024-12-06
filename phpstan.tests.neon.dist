@@ -51,7 +51,3 @@ parameters:
             message: "#^Missing native return typehint (never|void)$#"
             count: 1
             path: tests/MessageBus/StaticAnalysis/Events/Fixtures/HandleMethodHasNullReturnTypeOnSomethingValidHappened.php
-        -
-            message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(array\\<Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\>\\|Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\StampInterface\\)\\: mixed\\)\\|null, Closure\\(Symfony\\\\Component\\\\Messenger\\\\Stamp\\\\HandledStamp\\)\\: string given\\.$#"
-            count: 1
-            path: tests/MessageBus/Middleware/LoggingMiddlewareTest.phpt
