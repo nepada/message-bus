@@ -30,7 +30,9 @@ final readonly class MessageTypeExtractor
             );
         }
 
-        return MessageType::fromString($parameterType->getName());
+        /** @var class-string $parameterName */
+        $parameterName = $parameterType->getName();
+        return MessageType::fromString($parameterName);
     }
 
 }

@@ -58,7 +58,7 @@ class CommandHandlerValidatorTest extends TestCase
     }
 
     /**
-     * @return mixed[][]
+     * @return list<mixed[]>
      */
     public function getDataForValidateFails(): array
     {

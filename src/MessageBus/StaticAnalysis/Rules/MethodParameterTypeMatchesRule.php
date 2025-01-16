@@ -26,6 +26,7 @@ final readonly class MethodParameterTypeMatchesRule
             throw $this->createException($parameter);
         }
 
+        /** @var string $parameterTypeName */
         $parameterTypeName = $parameterType->getName();
         if ($parameterTypeName !== $this->parameterType && ! is_subclass_of($parameterTypeName, $this->parameterType)) {
             throw $this->createException($parameter);

@@ -44,7 +44,7 @@ class LogMessageResolverTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function provideDataForTestAllMethods(): array
     {
