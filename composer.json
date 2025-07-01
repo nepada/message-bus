@@ -25,7 +25,7 @@
         "psr/log": "^1.1 || ^2.0 || ^3.0"
     },
     "require-dev": {
-        "nette/tester": "2.5.4",
+        "nette/tester": "2.5.5",
         "phpstan/phpstan": "2.1.17",
         "phpstan/phpstan-strict-rules": "2.0.4",
         "nepada/phpstan-nette-tester": "2.0.0",
