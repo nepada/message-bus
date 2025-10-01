@@ -20,6 +20,7 @@ parameters:
             missingCheckedExceptionInThrows: true
             tooWideThrowType: true
         uncheckedExceptionClasses:
+            - ValueError
             - LogicException
             - Nette\InvalidStateException
             - Psr\Container\ContainerExceptionInterface
