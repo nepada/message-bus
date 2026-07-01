@@ -26,7 +26,7 @@ jobs:
           - '--prefer-stable --prefer-lowest'
     name: PHP ${{ matrix.php }} ${{ matrix.composer_args }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -54,7 +54,7 @@ jobs:
     needs: [ tests ]
     name: Code Style
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
@@ -70,7 +70,7 @@ jobs:
     continue-on-error: true
     name: Code Coverage
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
