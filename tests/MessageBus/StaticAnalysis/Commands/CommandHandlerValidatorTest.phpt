@@ -44,7 +44,10 @@ class CommandHandlerValidatorTest extends TestCase
      * @dataProvider getDataForValidateFails
      * @param string|NULL $expectedExceptionMessage
      */
-    public function testValidateFails(string $handlerClassName, ?string $expectedExceptionMessage = null): void
+    public function testValidateFails(
+        string $handlerClassName,
+        ?string $expectedExceptionMessage = null,
+    ): void
     {
         $validator = new ConfigurableHandlerValidator(MessageHandlerValidationConfiguration::command());
 

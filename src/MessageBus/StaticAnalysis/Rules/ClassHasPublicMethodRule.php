@@ -9,11 +9,10 @@ use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 final readonly class ClassHasPublicMethodRule
 {
 
-    private string $methodName;
-
-    public function __construct(string $methodName)
+    public function __construct(
+        private string $methodName,
+    )
     {
-        $this->methodName = $methodName;
     }
 
     /**

@@ -13,16 +13,12 @@ final readonly class HandlerType
 {
 
     /**
-     * @var class-string<T>
-     */
-    private string $type;
-
-    /**
      * @param class-string<T> $type
      */
-    private function __construct(string $type)
+    private function __construct(
+        private string $type,
+    )
     {
-        $this->type = $type;
     }
 
     /**

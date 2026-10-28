@@ -20,7 +20,10 @@ class CallbackMiddleware implements MiddlewareInterface
         $this->callback = $callback;
     }
 
-    public function handle(Envelope $envelope, StackInterface $stack): Envelope
+    public function handle(
+        Envelope $envelope,
+        StackInterface $stack,
+    ): Envelope
     {
         ($this->callback)();
         return $stack->next()->handle($envelope, $stack);

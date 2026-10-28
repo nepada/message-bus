@@ -9,11 +9,10 @@ use ReflectionParameter;
 final readonly class MethodParameterNameMatchesRule
 {
 
-    private string $parameterName;
-
-    public function __construct(string $parameterName)
+    public function __construct(
+        private string $parameterName,
+    )
     {
-        $this->parameterName = $parameterName;
     }
 
     /**

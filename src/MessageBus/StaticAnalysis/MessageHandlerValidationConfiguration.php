@@ -9,41 +9,17 @@ use Nepada\MessageBus\Events\Event;
 readonly class MessageHandlerValidationConfiguration
 {
 
-    private bool $handlerClassMustBeFinal;
-
-    private bool $messageClassMustBeFinal;
-
-    private string $handleMethodParameterName;
-
-    private string $handleMethodParameterType;
-
-    private string $messageClassSuffix;
-
-    private string $handlerClassSuffix;
-
-    private string $handlerClassPrefixRegex;
-
-    private bool $messageClassMustBeReadOnly;
-
     public function __construct(
-        bool $handlerClassMustBeFinal = true,
-        bool $messageClassMustBeFinal = true,
-        string $handleMethodParameterName = 'message',
-        string $handleMethodParameterType = 'object',
-        string $messageClassSuffix = '',
-        string $handlerClassSuffix = '',
-        string $handlerClassPrefixRegex = '',
-        bool $messageClassMustBeReadOnly = true,
+        private bool $handlerClassMustBeFinal = true,
+        private bool $messageClassMustBeFinal = true,
+        private string $handleMethodParameterName = 'message',
+        private string $handleMethodParameterType = 'object',
+        private string $messageClassSuffix = '',
+        private string $handlerClassSuffix = '',
+        private string $handlerClassPrefixRegex = '',
+        private bool $messageClassMustBeReadOnly = true,
     )
     {
-        $this->handlerClassMustBeFinal = $handlerClassMustBeFinal;
-        $this->messageClassMustBeFinal = $messageClassMustBeFinal;
-        $this->handleMethodParameterName = $handleMethodParameterName;
-        $this->handleMethodParameterType = $handleMethodParameterType;
-        $this->messageClassSuffix = $messageClassSuffix;
-        $this->handlerClassSuffix = $handlerClassSuffix;
-        $this->handlerClassPrefixRegex = $handlerClassPrefixRegex;
-        $this->messageClassMustBeReadOnly = $messageClassMustBeReadOnly;
     }
 
     public static function command(bool $bleedingEdge = false): self

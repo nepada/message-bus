@@ -9,11 +9,10 @@ use Symfony\Component\Messenger\MessageBusInterface;
 final readonly class MessengerCommandBus implements CommandBus
 {
 
-    private MessageBusInterface $messageBus;
-
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(
+        private MessageBusInterface $messageBus,
+    )
     {
-        $this->messageBus = $messageBus;
     }
 
     public function handle(Command $command): void

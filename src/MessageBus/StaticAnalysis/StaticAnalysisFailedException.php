@@ -6,7 +6,10 @@ namespace Nepada\MessageBus\StaticAnalysis;
 final class StaticAnalysisFailedException extends \RuntimeException
 {
 
-    public static function with(string $problem, string $type): self
+    public static function with(
+        string $problem,
+        string $type,
+    ): self
     {
         return new self(
             sprintf(

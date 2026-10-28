@@ -17,13 +17,12 @@ use Nepada\MessageBus\StaticAnalysis\Rules\ShortClassNameMatchesRule;
 final readonly class ConfigurableHandlerValidator implements MessageHandlerValidator
 {
 
-    private MessageHandlerValidationConfiguration $configuration;
-
     private MessageTypeExtractor $messageTypeExtractor;
 
-    public function __construct(MessageHandlerValidationConfiguration $configuration)
+    public function __construct(
+        private MessageHandlerValidationConfiguration $configuration,
+    )
     {
-        $this->configuration = $configuration;
         $this->messageTypeExtractor = new MessageTypeExtractor();
     }
 
@@ -71,7 +70,11 @@ final readonly class ConfigurableHandlerValidator implements MessageHandlerValid
     /**
      * @throws StaticAnalysisFailedException
      */
-    private function validateHandlerClassName(string $handlerClass, string $shortMessageName, MessageHandlerValidationConfiguration $configuration): void
+    private function validateHandlerClassName(
+        string $handlerClass,
+        string $shortMessageName,
+        MessageHandlerValidationConfiguration $configuration,
+    ): void
     {
         $expectedHandlerClassShort = sprintf(
             '#^%s%s%s$#',

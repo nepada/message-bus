@@ -11,23 +11,20 @@ use Symfony\Component\Messenger\Stamp\HandledStamp;
 final readonly class MessageContextResolver
 {
 
-    private string $keyPrefix;
-
-    private PrivateClassPropertiesExtractor $privateClassPropertiesExtractor;
-
     public function __construct(
-        PrivateClassPropertiesExtractor $privateClassPropertiesExtractor,
-        string $keyPrefix = '',
+        private PrivateClassPropertiesExtractor $privateClassPropertiesExtractor,
+        private string $keyPrefix = '',
     )
     {
-        $this->privateClassPropertiesExtractor = $privateClassPropertiesExtractor;
-        $this->keyPrefix = $keyPrefix;
     }
 
     /**
      * @return mixed[]
      */
-    public function getContext(Envelope $envelope, ?\Throwable $exception = null): array
+    public function getContext(
+        Envelope $envelope,
+        ?\Throwable $exception = null,
+    ): array
     {
         if ($exception instanceof HandlerFailedException) {
             $envelope = $exception->getEnvelope();
@@ -88,7 +85,10 @@ final readonly class MessageContextResolver
      * @param mixed[] $source
      * @return mixed[]
      */
-    private function mergeSafely(array $destination, array $source): array
+    private function mergeSafely(
+        array $destination,
+        array $source,
+    ): array
     {
         $sourceItemsWithAmbiguousKeys = array_intersect_key($source, $destination);
 
@@ -118,7 +118,10 @@ final readonly class MessageContextResolver
      * @param mixed[] $array
      * @return mixed[]
      */
-    private function prefixArrayKeys(array $array, string $prefix): array
+    private function prefixArrayKeys(
+        array $array,
+        string $prefix,
+    ): array
     {
         $keys = array_map(
             fn (string $key): string => $prefix . $key,

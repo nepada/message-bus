@@ -9,11 +9,10 @@ use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 final readonly class ClassNameHasSuffixRule
 {
 
-    private string $suffix;
-
-    public function __construct(string $suffix)
+    public function __construct(
+        private string $suffix,
+    )
     {
-        $this->suffix = $suffix;
     }
 
     /**

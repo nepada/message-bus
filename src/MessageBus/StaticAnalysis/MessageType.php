@@ -11,16 +11,12 @@ final readonly class MessageType
 {
 
     /**
-     * @var class-string
-     */
-    private string $type;
-
-    /**
      * @param class-string $type
      */
-    private function __construct(string $type)
+    private function __construct(
+        private string $type,
+    )
     {
-        $this->type = $type;
     }
 
     public static function fromMessage(object $message): self

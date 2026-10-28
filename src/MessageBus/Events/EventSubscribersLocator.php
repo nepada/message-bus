@@ -11,20 +11,14 @@ use Symfony\Component\Messenger\Handler\HandlersLocatorInterface;
 final readonly class EventSubscribersLocator implements HandlersLocatorInterface
 {
 
-    private ContainerInterface $container;
-
-    /**
-     * @var array<class-string, string[]>
-     */
-    private array $serviceNamesByMessageType;
-
     /**
      * @param array<class-string, string[]> $serviceNamesByMessageType
      */
-    public function __construct(ContainerInterface $container, array $serviceNamesByMessageType)
+    public function __construct(
+        private ContainerInterface $container,
+        private array $serviceNamesByMessageType,
+    )
     {
-        $this->container = $container;
-        $this->serviceNamesByMessageType = $serviceNamesByMessageType;
     }
 
     /**

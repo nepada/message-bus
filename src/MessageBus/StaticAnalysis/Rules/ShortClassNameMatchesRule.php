@@ -9,11 +9,10 @@ use Nepada\MessageBus\StaticAnalysis\StaticAnalysisFailedException;
 final readonly class ShortClassNameMatchesRule
 {
 
-    private string $regexPattern;
-
-    public function __construct(string $regexPattern)
+    public function __construct(
+        private string $regexPattern,
+    )
     {
-        $this->regexPattern = $regexPattern;
     }
 
     /**

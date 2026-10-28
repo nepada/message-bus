@@ -9,11 +9,10 @@ use ReflectionParameter;
 final readonly class MethodParameterTypeMatchesRule
 {
 
-    private string $parameterType;
-
-    public function __construct(string $parameterType)
+    public function __construct(
+        private string $parameterType,
+    )
     {
-        $this->parameterType = $parameterType;
     }
 
     /**

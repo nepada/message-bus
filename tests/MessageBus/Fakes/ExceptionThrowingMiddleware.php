@@ -10,14 +10,16 @@ use Symfony\Component\Messenger\Middleware\StackInterface;
 class ExceptionThrowingMiddleware implements MiddlewareInterface
 {
 
-    private \Throwable $exception;
-
-    public function __construct(\Throwable $exception)
+    public function __construct(
+        private \Throwable $exception,
+    )
     {
-        $this->exception = $exception;
     }
 
-    public function handle(Envelope $envelope, StackInterface $stack): Envelope
+    public function handle(
+        Envelope $envelope,
+        StackInterface $stack,
+    ): Envelope
     {
         throw $this->exception;
     }

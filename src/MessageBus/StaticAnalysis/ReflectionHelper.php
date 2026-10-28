@@ -27,7 +27,10 @@ final readonly class ReflectionHelper
      * @param class-string<T> $class
      * @throws StaticAnalysisFailedException
      */
-    public static function requireMethodReflection(string $class, string $methodName): \ReflectionMethod
+    public static function requireMethodReflection(
+        string $class,
+        string $methodName,
+    ): \ReflectionMethod
     {
         try {
             return self::requireClassReflection($class)->getMethod($methodName);

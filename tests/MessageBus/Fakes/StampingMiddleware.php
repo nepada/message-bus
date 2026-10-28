@@ -11,7 +11,10 @@ use Symfony\Component\Messenger\Stamp\HandledStamp;
 class StampingMiddleware implements MiddlewareInterface
 {
 
-    public function handle(Envelope $envelope, StackInterface $stack): Envelope
+    public function handle(
+        Envelope $envelope,
+        StackInterface $stack,
+    ): Envelope
     {
         $envelope = $envelope->with(new HandledStamp(true, self::class));
         return $stack->next()->handle($envelope, $stack);

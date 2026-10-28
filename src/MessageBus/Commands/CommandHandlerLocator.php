@@ -11,20 +11,14 @@ use Symfony\Component\Messenger\Handler\HandlersLocatorInterface;
 final readonly class CommandHandlerLocator implements HandlersLocatorInterface
 {
 
-    private ContainerInterface $container;
-
-    /**
-     * @var array<class-string, string>
-     */
-    private array $serviceNameByMessageType;
-
     /**
      * @param array<class-string, string> $serviceNameByMessageType
      */
-    public function __construct(ContainerInterface $container, array $serviceNameByMessageType)
+    public function __construct(
+        private ContainerInterface $container,
+        private array $serviceNameByMessageType,
+    )
     {
-        $this->container = $container;
-        $this->serviceNameByMessageType = $serviceNameByMessageType;
     }
 
     /**

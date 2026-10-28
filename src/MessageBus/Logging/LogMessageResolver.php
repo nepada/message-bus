@@ -26,7 +26,10 @@ final readonly class LogMessageResolver
         );
     }
 
-    public function getHandlingEndedWithErrorMessage(Envelope $envelope, \Throwable $exception): string
+    public function getHandlingEndedWithErrorMessage(
+        Envelope $envelope,
+        \Throwable $exception,
+    ): string
     {
         if ($exception instanceof HandlerFailedException) {
             $nestedExceptions = $exception->getWrappedExceptions();

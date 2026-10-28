@@ -9,11 +9,10 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final readonly class MessengerEventDispatcher implements EventDispatcher
 {
 
-    private MessageBusInterface $messageBus;
-
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(
+        private MessageBusInterface $messageBus,
+    )
     {
-        $this->messageBus = $messageBus;
     }
 
     public function dispatch(Event $event): void

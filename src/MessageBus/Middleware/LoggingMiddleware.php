@@ -15,27 +15,24 @@ use Symfony\Component\Messenger\Middleware\StackInterface;
 final readonly class LoggingMiddleware implements MiddlewareInterface
 {
 
-    private LogMessageResolver $logMessageResolver;
-
-    private MessageContextResolver $messageContextResolver;
-
     private LoggerInterface $logger;
 
     public function __construct(
-        LogMessageResolver $logMessageResolver,
-        MessageContextResolver $messageContextResolver,
+        private LogMessageResolver $logMessageResolver,
+        private MessageContextResolver $messageContextResolver,
         ?LoggerInterface $logger = null,
     )
     {
-        $this->logMessageResolver = $logMessageResolver;
-        $this->messageContextResolver = $messageContextResolver;
         $this->logger = $logger ?? new NullLogger();
     }
 
     /**
      * @throws ExceptionInterface
      */
-    public function handle(Envelope $envelope, StackInterface $stack): Envelope
+    public function handle(
+        Envelope $envelope,
+        StackInterface $stack,
+    ): Envelope
     {
         $this->logger->info(
             $this->logMessageResolver->getHandlingStartedMessage($envelope),

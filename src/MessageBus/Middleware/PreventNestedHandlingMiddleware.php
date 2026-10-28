@@ -19,7 +19,10 @@ final class PreventNestedHandlingMiddleware implements MiddlewareInterface
     /**
      * @throws ExceptionInterface
      */
-    public function handle(Envelope $envelope, StackInterface $stack): Envelope
+    public function handle(
+        Envelope $envelope,
+        StackInterface $stack,
+    ): Envelope
     {
         if ($this->isHandling) {
             throw new AlreadyHandlingOtherMessageException('Already handling other message.');
